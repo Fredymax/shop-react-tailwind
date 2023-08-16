@@ -5,9 +5,7 @@ import { fileURLToPath, URL } from 'url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  server: {
-    port: 3000,
-  },
+  base: './',
   plugins: [react(), svgr()],
   resolve: {
     alias: [
