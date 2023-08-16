@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply min-h-screen font-sans;
+}
+
+#root {
+  @apply min-h-screen font-sans;
+}
+
+.wrapper {
+  max-inline-size: 1300px;
+  @apply m-auto w-full;
+}
+
+.product__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  font-size: 0.9em;
+}
+
+.nav__list a {
+  @apply block w-full rounded-lg p-3 hover:bg-gray-50;
+}
+
+.nav__list a.active,
+.nav__right a.active {
+  @apply bg-gray-700 text-white;
+}
+
+.nav__list {
+  counter-set: nav-counter;
+}
+
+.nav__list a::before {
+  content: counter(nav-counter) '.';
+  counter-increment: nav-counter;
+  padding-inline-end: 0.5em;
+}
+
+.nav__right a {
+  /* line-height: 40px; */
+  @apply block h-full rounded-lg px-[15px] focus-within:outline-none;
+}
+
+.nav__right a:not(.active:hover) {
+  @apply hover:bg-gray-50 hover:text-gray-700;
+}
+
+.card.skeleton {
+  block-size: 100%;
+  align-items: center;
+  justify-content: center;
+  background: rgb(242, 242, 242);
+  background: linear-gradient(
+    -45deg,
+    rgb(240, 240, 240) 40%,
+    rgb(250, 250, 250) 47%,
+    rgba(250, 250, 250) 53%,
+    rgba(240, 240, 240) 60%
+  );
+  background-size: 400% 100%;
+
+  animation: skeleton-animation;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
+  user-select: none;
+  pointer-events: none;
+}
+
+@keyframes skeleton-animation {
+  from {
+    background-position: 0% 100%;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+.card__image {
+  background-color: #f9f9f9;
+}
+
+.card__image img {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.image-animation {
+  opacity: 1 !important;
+}
+
+@keyframes image-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
